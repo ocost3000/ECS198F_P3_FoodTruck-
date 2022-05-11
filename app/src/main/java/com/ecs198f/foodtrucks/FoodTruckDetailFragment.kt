@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.ecs198f.foodtrucks.databinding.FragmentFoodTruckDetailBinding
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,6 +20,7 @@ class FoodTruckDetailFragment : Fragment() {
     private val args: FoodTruckDetailFragmentArgs by navArgs()
     private lateinit var tabStateAdapter: TabStateAdapter
     private lateinit var viewPager: ViewPager2
+    private val tabNames = listOf<String>("Menu", "Reviews")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +28,8 @@ class FoodTruckDetailFragment : Fragment() {
     ): View? {
         val binding = FragmentFoodTruckDetailBinding.inflate(inflater, container, false)
 
+        // title = ...
+        // TODO: pass title, probably from safeargs below
         args.foodTruck.let {
             binding.apply {
                 Glide.with(root).load(it.imageUrl).into(foodTruckDetailImage)
@@ -37,10 +42,18 @@ class FoodTruckDetailFragment : Fragment() {
         return binding.root
     }
 
+    fun getTruckName(): String = "REPLACEME"
+    fun getTruckId(): String = "REPLACEME"
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // send argument to subfragment
-        tabStateAdapter = TabStateAdapter(this)
+        tabStateAdapter = TabStateAdapter(this, getTruckName(), getTruckId())
         viewPager = view.findViewById(R.id.pager)
         viewPager.adapter = tabStateAdapter
+
+        val tabLayout = view.findViewById<TabLayout>(R.id.tab_layout)
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = tabNames[position]
+        }.attach()
     }
 }
