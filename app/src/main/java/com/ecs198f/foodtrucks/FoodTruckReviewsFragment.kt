@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.ecs198f.foodtrucks.databinding.FragmentFoodTruckReviewsBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,27 +17,34 @@ class FoodTruckReviewsFragment(val name: String, val id: String) : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val binding = FragmentFoodTruckReviewsBinding.inflate(inflater, container, false)
         val recyclerViewAdapter = FoodReviewListRecyclerViewAdapter(listOf())
 
-        (requireActivity() as MainActivity).apply {
-            title = this@FoodTruckReviewsFragment.name
+        binding.apply {
+            foodReviewListRecyclerView.apply {
+                adapter = recyclerViewAdapter
+                layoutManager = LinearLayoutManager(context)
+            }
+        }
 
-            foodTruckService.listFoodItems(this@FoodTruckReviewsFragment.id).enqueue(object :
-                Callback<List<FoodItem>> {
+        (requireActivity() as MainActivity).apply {
+
+            foodTruckService.listFoodReviews(this@FoodTruckReviewsFragment.id).enqueue(object :
+                Callback<List<FoodReview>> {
                 override fun onResponse(
-                    call: Call<List<FoodItem>>,
-                    response: Response<List<FoodItem>>
+                    call: Call<List<FoodReview>>,
+                    response: Response<List<FoodReview>>
                 ) {
-                    recyclerViewAdapter.updateItems(response.body()!!)
+                    recyclerViewAdapter.updateReviews(response.body()!!)
                 }
 
-                override fun onFailure(call: Call<List<FoodItem>>, t: Throwable) {
+                override fun onFailure(call: Call<List<FoodReview>>, t: Throwable) {
                     throw t
                 }
             })
         }
 
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return binding.root
 
         TODO("The visibility attribute can be used to show/hide Views in the Fragment")
         // use this to toggle between SIGN IN and POST

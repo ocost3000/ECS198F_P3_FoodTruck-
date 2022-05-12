@@ -11,12 +11,11 @@ class TabStateAdapter(fragment: Fragment, val name: String, val id: String) : Fr
     override fun getItemCount(): Int = 2
 
     override fun createFragment(position: Int): Fragment {
-        TODO("Need to have logic to choose between the two subfragments")
-        if (position == 0) {
-            val fragment = FoodTruckMenuFragment(name, id)
+        var fragment: Fragment = if (position == 0) {
+            FoodTruckMenuFragment(name, id)
         } else {
-            val fragment = FoodTruckReviewsFragment(name, id)
+            FoodTruckReviewsFragment(name, id)
         }
-        fragment.arguments =
+        return fragment
     }
 }

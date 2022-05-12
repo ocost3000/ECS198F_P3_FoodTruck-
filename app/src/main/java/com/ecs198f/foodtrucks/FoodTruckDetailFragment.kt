@@ -18,9 +18,11 @@ import retrofit2.Response
 
 class FoodTruckDetailFragment : Fragment() {
     private val args: FoodTruckDetailFragmentArgs by navArgs()
+    private val tabNames = listOf<String>("Menu", "Reviews")
     private lateinit var tabStateAdapter: TabStateAdapter
     private lateinit var viewPager: ViewPager2
-    private val tabNames = listOf<String>("Menu", "Reviews")
+    private lateinit var name: String
+    private lateinit var id: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,8 +30,6 @@ class FoodTruckDetailFragment : Fragment() {
     ): View? {
         val binding = FragmentFoodTruckDetailBinding.inflate(inflater, container, false)
 
-        // title = ...
-        // TODO: pass title, probably from safeargs below
         args.foodTruck.let {
             binding.apply {
                 Glide.with(root).load(it.imageUrl).into(foodTruckDetailImage)
@@ -37,17 +37,18 @@ class FoodTruckDetailFragment : Fragment() {
                 foodTruckDetailLocation.text = it.location
                 foodTruckDetailTime.text = it.formattedTimeInterval
             }
+            // passing title through safeArgs instead of through api response
+            (requireActivity() as MainActivity).title = it.name
+            name = it.name
+            id = it.id
         }
 
         return binding.root
     }
 
-    fun getTruckName(): String = "REPLACEME"
-    fun getTruckId(): String = "REPLACEME"
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // send argument to subfragment
-        tabStateAdapter = TabStateAdapter(this, getTruckName(), getTruckId())
+        tabStateAdapter = TabStateAdapter(this, name, id)
         viewPager = view.findViewById(R.id.pager)
         viewPager.adapter = tabStateAdapter
 
