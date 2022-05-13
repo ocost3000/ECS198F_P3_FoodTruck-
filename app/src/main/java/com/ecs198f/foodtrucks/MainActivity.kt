@@ -1,7 +1,7 @@
 package com.ecs198f.foodtrucks
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.ecs198f.foodtrucks.databinding.ActivityMainBinding
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonDeserializationContext
@@ -11,6 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.reflect.Type
 import java.time.LocalDateTime
+
 
 class MainActivity : AppCompatActivity() {
     private val gson = GsonBuilder()
