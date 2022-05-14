@@ -1,4 +1,4 @@
-package com.ecs198f.foodtrucks
+package com.ecs198f.foodtrucks.models
 
 data class FoodItem(
     val id: String,

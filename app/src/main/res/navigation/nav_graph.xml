@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/foodTruckListFragment"
-        android:name="com.ecs198f.foodtrucks.FoodTruckListFragment"
+        android:name="com.ecs198f.foodtrucks.fragments.FoodTruckListFragment"
         android:label="fragment_food_truck_list"
         tools:layout="@layout/fragment_food_truck_list" >
         <action
@@ -16,11 +16,11 @@
     </fragment>
     <fragment
         android:id="@+id/foodTruckDetailFragment"
-        android:name="com.ecs198f.foodtrucks.FoodTruckDetailFragment"
+        android:name="com.ecs198f.foodtrucks.fragments.FoodTruckDetailFragment"
         android:label="fragment_food_truck_detail"
         tools:layout="@layout/fragment_food_truck_detail" >
         <argument
             android:name="foodTruck"
-            app:argType="com.ecs198f.foodtrucks.FoodTruck" />
+            app:argType="com.ecs198f.foodtrucks.models.FoodTruck" />
     </fragment>
 </navigation>

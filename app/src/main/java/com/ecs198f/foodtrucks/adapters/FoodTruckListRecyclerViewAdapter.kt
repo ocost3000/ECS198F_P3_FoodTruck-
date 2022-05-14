@@ -1,11 +1,13 @@
-package com.ecs198f.foodtrucks
+package com.ecs198f.foodtrucks.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.ecs198f.foodtrucks.fragments.FoodTruckListFragmentDirections
 import com.ecs198f.foodtrucks.databinding.FoodTruckListItemBinding
+import com.ecs198f.foodtrucks.models.FoodTruck
 
 class FoodTruckListRecyclerViewAdapter(private var items: List<FoodTruck>) :
     RecyclerView.Adapter<FoodTruckListRecyclerViewAdapter.ViewHolder>() {

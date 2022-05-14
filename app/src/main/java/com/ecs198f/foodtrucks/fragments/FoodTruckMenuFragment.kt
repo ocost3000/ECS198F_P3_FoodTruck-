@@ -1,4 +1,4 @@
-package com.ecs198f.foodtrucks
+package com.ecs198f.foodtrucks.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ecs198f.foodtrucks.MainActivity
+import com.ecs198f.foodtrucks.adapters.FoodItemListRecyclerViewAdapter
 import com.ecs198f.foodtrucks.databinding.FragmentFoodTruckMenuBinding
-import com.ecs198f.foodtrucks.databinding.FragmentFoodTruckReviewsBinding
+import com.ecs198f.foodtrucks.models.FoodItem
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

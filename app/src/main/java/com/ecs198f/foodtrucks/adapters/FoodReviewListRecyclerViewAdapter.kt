@@ -1,10 +1,11 @@
-package com.ecs198f.foodtrucks
+package com.ecs198f.foodtrucks.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ecs198f.foodtrucks.databinding.FoodReviewBinding
+import com.ecs198f.foodtrucks.models.FoodReview
 
 class FoodReviewListRecyclerViewAdapter(private var reviews: List<FoodReview>):
     RecyclerView.Adapter<FoodReviewListRecyclerViewAdapter.ViewHolder>() {

@@ -1,7 +1,9 @@
-package com.ecs198f.foodtrucks
+package com.ecs198f.foodtrucks.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.ecs198f.foodtrucks.fragments.FoodTruckMenuFragment
+import com.ecs198f.foodtrucks.fragments.FoodTruckReviewsFragment
 
 class TabStateAdapter(fragment: Fragment, val name: String, val id: String) : FragmentStateAdapter(fragment) {
     // This adapter is responsible for determining which fragment
