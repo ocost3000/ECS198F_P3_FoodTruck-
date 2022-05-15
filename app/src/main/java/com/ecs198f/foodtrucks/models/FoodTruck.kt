@@ -1,11 +1,15 @@
 package com.ecs198f.foodtrucks.models
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import kotlinx.parcelize.IgnoredOnParcel
+import kotlinx.parcelize.Parcelize
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 @Parcelize
+@Entity
 data class FoodTruck(
     val id: String,
     val name: String,
@@ -15,6 +19,8 @@ data class FoodTruck(
     val openTime: LocalDateTime,
     val closeTime: LocalDateTime
 ): Parcelable {
+    @IgnoredOnParcel
+    @PrimaryKey(autoGenerate = true) var primaryKey: Int = 0
     val formattedTimeInterval: String
         get() = "${openTime.format(timeOnlyFormatter)} - ${closeTime.format(dateTimeFormatter)}"
 

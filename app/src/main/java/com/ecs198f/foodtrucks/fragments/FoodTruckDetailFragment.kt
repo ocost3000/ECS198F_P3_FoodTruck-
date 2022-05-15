@@ -16,7 +16,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class FoodTruckDetailFragment : Fragment() {
-    private val args: com.ecs198f.foodtrucks.fragments.FoodTruckDetailFragmentArgs by navArgs()
+    private val args: FoodTruckDetailFragmentArgs by navArgs()
     private val tabNames = listOf<String>("Menu", "Reviews")
     private lateinit var tabStateAdapter: TabStateAdapter
     private lateinit var viewPager: ViewPager2
@@ -26,7 +26,7 @@ class FoodTruckDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentFoodTruckDetailBinding.inflate(inflater, container, false)
 
         args.foodTruck.let {

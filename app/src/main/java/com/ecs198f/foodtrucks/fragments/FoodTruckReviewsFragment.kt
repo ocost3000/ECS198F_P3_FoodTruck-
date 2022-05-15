@@ -116,7 +116,7 @@ class FoodTruckReviewsFragment(val name: String, val id: String) : Fragment() {
                 }
 
                 override fun onFailure(call: Call<List<FoodReview>>, t: Throwable) {
-                    throw t
+                    recyclerViewAdapter.updateReviews(listOf())
                 }
             })
         }
