@@ -1,4 +1,4 @@
-package com.ecs198f.foodtrucks
+package com.ecs198f.foodtrucks.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

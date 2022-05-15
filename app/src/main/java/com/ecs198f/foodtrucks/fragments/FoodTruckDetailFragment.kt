@@ -1,4 +1,4 @@
-package com.ecs198f.foodtrucks
+package com.ecs198f.foodtrucks.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,18 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
+import com.ecs198f.foodtrucks.MainActivity
+import com.ecs198f.foodtrucks.R
+import com.ecs198f.foodtrucks.adapters.TabStateAdapter
 import com.ecs198f.foodtrucks.databinding.FragmentFoodTruckDetailBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class FoodTruckDetailFragment : Fragment() {
-    private val args: FoodTruckDetailFragmentArgs by navArgs()
+    private val args: com.ecs198f.foodtrucks.fragments.FoodTruckDetailFragmentArgs by navArgs()
     private val tabNames = listOf<String>("Menu", "Reviews")
     private lateinit var tabStateAdapter: TabStateAdapter
     private lateinit var viewPager: ViewPager2

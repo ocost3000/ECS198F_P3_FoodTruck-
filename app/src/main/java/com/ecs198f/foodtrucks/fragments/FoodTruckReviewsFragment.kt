@@ -1,4 +1,4 @@
-package com.ecs198f.foodtrucks
+package com.ecs198f.foodtrucks.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,11 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ecs198f.foodtrucks.MainActivity
+import com.ecs198f.foodtrucks.PostReviewRequest
 import com.ecs198f.foodtrucks.databinding.FragmentFoodTruckReviewsBinding
+import com.ecs198f.foodtrucks.models.FoodReview
+import com.ecs198f.foodtrucks.adapters.FoodReviewListRecyclerViewAdapter
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions

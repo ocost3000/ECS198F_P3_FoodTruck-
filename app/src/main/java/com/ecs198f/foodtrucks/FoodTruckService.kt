@@ -1,5 +1,8 @@
 package com.ecs198f.foodtrucks
 
+import com.ecs198f.foodtrucks.models.FoodItem
+import com.ecs198f.foodtrucks.models.FoodReview
+import com.ecs198f.foodtrucks.models.FoodTruck
 import retrofit2.Call
 import retrofit2.http.*
 
