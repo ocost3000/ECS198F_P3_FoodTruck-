@@ -1,7 +1,9 @@
 package com.ecs198f.foodtrucks
 
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.ecs198f.foodtrucks.databinding.ActivityMainBinding
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonDeserializationContext
@@ -14,6 +16,8 @@ import java.time.LocalDateTime
 
 
 class MainActivity : AppCompatActivity() {
+
+
     private val gson = GsonBuilder()
         .registerTypeAdapter(LocalDateTime::class.java, object : JsonDeserializer<LocalDateTime> {
             override fun deserialize(
@@ -35,6 +39,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
+
+        val connMgr = ContextCompat.getSystemService(
+            applicationContext,
+            ConnectivityManager::class.java
+        )
+
+        val currentNetwork = connMgr?.activeNetwork
+
         setContentView(binding.root)
 
         title = "Food Trucks"
